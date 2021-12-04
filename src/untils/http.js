@@ -2,7 +2,7 @@ import axios from 'axios'
 const qsLib = require('querystring')
 
 import router from '../router'
-import  { Toast } from 'vant';
+import { Toast } from 'vant';
 Toast.setDefaultOptions({ duration: 2000 });
 axios.defaults.timeout = 10000;
 
@@ -13,12 +13,13 @@ axios.interceptors.request.use(
   config => {
     config.timeout = 10000
     let token = localStorage.getItem('token');
-    console.log(router);
-    // if(!token) {
-    //   router.push('/login')
-    //   return;
-    // }
-    console.log(token);
+    console.log();
+    if (!token && window.location.pathname != '/login') {
+      router.push('/login')
+      return;
+    }
+  
+    
     config.headers['User-Token'] = token;
     return config;
   },
@@ -38,7 +39,7 @@ axios.interceptors.response.use(
         console.log(response)
         router.push('/')
       }, 1000);
-      
+
     }
     if (response && response.data && response.data.code == '-11') {
       Toast.fail('身份过期，请重新登陆');
@@ -47,7 +48,7 @@ axios.interceptors.response.use(
           path: '/login'
         })
       }, 1000);
-      
+
     }
     if (response && response.data && response.data.code == '-403') {
       Toast.fail('账户被冻结，请联系管理员');
@@ -68,7 +69,7 @@ axios.interceptors.response.use(
     if (response && response.data && response.data.code == '-399') {
       console.log(111);
       Toast.fail('没有权限');
-       setTimeout(() => {
+      setTimeout(() => {
         router.push({
           path: '/'
         })
@@ -77,7 +78,7 @@ axios.interceptors.response.use(
     }
 
     if (response && response.data && response.data.code == '-200') {
-     
+
       Toast.fail('账号异常');
       setTimeout(() => {
         router.push({
