@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["DelUser"],{"81b6":function(e,n,t){"use strict";t.r(n);var r=function(){var e=this,n=e.$createElement;e._self._c;return e._m(0)},l=[function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("h1",[e._v("删除用户")])])}],c=t("2877"),s={},u=Object(c["a"])(s,r,l,!1,null,null,null);n["default"]=u.exports}}]);
+//# sourceMappingURL=DelUser.3c2c19ae.js.map
