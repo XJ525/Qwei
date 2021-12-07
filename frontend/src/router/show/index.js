@@ -3,5 +3,8 @@ export default {
         path: '/',
         name: 'Show',
         component: Show,
+        meta: {
+          keepAlive: true
+        }
         
 }

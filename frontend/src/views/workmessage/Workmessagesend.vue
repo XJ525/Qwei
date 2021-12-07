@@ -98,9 +98,8 @@ export default {
                     res => {
                         if (res.code == 0) {
                             this.Toast.success('成功发布');
-                            this.$router.resplice('/about')
+                            this.$router.replace('/about')
                         } else {    
-                            console.log(res.message)
                             this.Toast.fail(res.message);
                         }
                     }

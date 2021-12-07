@@ -393,20 +393,12 @@ export default {
                 this.list = [];
                 this.finished = true;
                 return;
-            }
-
-            // for (let y = 0; y < res.data.length ; y++) {
-            //     if (res.data[y]['nickname'] == '' || res.data[y]['nickname'] == null) {
-
-            //     }
-            // }
-           
+            }          
             if (this.refreshing) {
               this.list = [];
               this.refreshing = false;
             }
-
-            // this.Like = [];
+            if(!res.data) return;
             for (let i = 0; i < res.data.length; i++) {
               res.data[i].attac_video_id = JSON.parse(
                 res.data[i].attac_video_id
@@ -438,7 +430,6 @@ export default {
               } else {
                 this.Like.push("like-o");
               }
-              // console.log(res.data[i].like);
               //时间
               let times = res.data[i].time;
               let newtime = new Date(times);
@@ -449,8 +440,6 @@ export default {
               this.list.push(res.data[i]);
              
             }
-
-            console.log(this.list)
 
             //翻页到顶没有了
             this.loading = false;

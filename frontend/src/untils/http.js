@@ -7,7 +7,7 @@ Toast.setDefaultOptions({ duration: 2000 });
 axios.defaults.timeout = 10000;
 
 
-axios.defaults.baseURL = 'http://localhost:3000/';
+axios.defaults.baseURL = 'https://api.xj996.top';
 
 axios.interceptors.request.use(
   config => {

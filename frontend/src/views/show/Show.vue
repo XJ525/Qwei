@@ -7,7 +7,8 @@
     </div>
 
     <div class="dyname">
-      <Dyname></Dyname>
+        <Dyname></Dyname>
+
     </div>
 
   </div>
